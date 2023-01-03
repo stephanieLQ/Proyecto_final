@@ -1,5 +1,5 @@
-def qa_server_ip="192.168.100.81";
-def prod_server_ip="192.168.100.83";
+def qa_server_ip="192.168.70.5";
+def prod_server_ip="192.168.70.5";
 pipeline {
     agent{label 'debian'} // debian node is QA environment
     stages {
