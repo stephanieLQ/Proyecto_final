@@ -5,8 +5,8 @@ pipeline {
     stages {
         stage('Clone QA env') {
             steps {
-                git '<put here your repository url>'
-            }            
+                sh:'git clone https://github.com/stephanieLQ/Proyecto_final.git'
+            }
         }
         stage('Change frontend ip'){
             steps{
@@ -37,7 +37,7 @@ pipeline {
         }
         stage('Deploy QA environment'){
             steps{
-                git '<put here your repository url>'
+                sh:'git clone https://github.com/stephanieLQ/Proyecto_final.git'
                 sh "docker compose down"
                 sh "docker compose up -d"
                 sh "docker compose ps"
@@ -56,7 +56,7 @@ pipeline {
         stage ('Deploy PROD environment'){
             agent{label 'prod'}
             steps{
-                git '<put here your repository url>'
+                sh:'git clone https://github.com/stephanieLQ/Proyecto_final.git'
                 unstash 'backend_image'
                 unstash 'frontend_image-prod'
                 sh "docker compose -f docker-compose-prod.yml down"
