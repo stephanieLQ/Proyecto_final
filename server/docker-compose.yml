@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  frontend:
+    hostname: frontend
+    image: frontend:1.0
+    ports:
+      - "8080:8080"
+    links:
+      - backend
+  backend:
+    hostname: backend
+    image: backend:1.0
+    ports:
+      - "5000:5000"
+
